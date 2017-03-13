@@ -12,9 +12,11 @@ var VERSION string
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Show go-cli version number",
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(RootCmd.Use + ", version " + VERSION)
-	},
+	Run: versionRun,
+}
+
+func versionRun (cmd *cobra.Command, args []string) {
+	fmt.Println(RootCmd.Use + ", version " + VERSION)
 }
 
 func init() {
@@ -29,5 +31,4 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// versionCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-
 }
